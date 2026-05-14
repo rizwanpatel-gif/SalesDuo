@@ -324,7 +324,7 @@ p{color:var(--text-muted)}
   padding:.8rem 1rem;border-radius:var(--r-lg);
   background:var(--glass-bg);border:1px solid var(--glass-bd);
   backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);
-  box-shadow:var(--sh-lg);z-index:10;min-width:130px}
+  box-shadow:var(--sh-lg);z-index:10;min-width:130px;}
 .card-top   {top:10%;   left:-6%}
 .card-bottom{bottom:10%;right:-6%}
 @media(max-width:767px){
@@ -336,7 +336,7 @@ p{color:var(--text-muted)}
   font-size:var(--text-lg);color:var(--text);line-height:1.1}
 .fc-data span{
   display:block;font-size:var(--text-xs);
-  color:var(--text-faint);text-transform:uppercase;letter-spacing:.09em}
+  color:#555 ;text-transform:uppercase;letter-spacing:.09em}
 .pulse-dot{
   width:9px;height:9px;border-radius:50%;background:var(--success);flex-shrink:0;
   animation:pulse-blink 2s ease-in-out infinite}
