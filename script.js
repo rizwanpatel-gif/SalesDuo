@@ -265,28 +265,49 @@
       }
     });
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const val = emailInput.value;
-      if (!val.trim()) {
-        setMsg('Email is required.', 'error');
-        emailInput.focus();
-        return;
+    function debounce(fn, delay) {
+         let timer;
+       return function (...args) {
+            clearTimeout(timer);
+             timer = setTimeout(() => fn.apply(this, args), delay);
+                                };
       }
-      if (!valid(val)) {
-        setMsg('Enter a valid email (e.g. you@example.com).', 'error');
-        emailInput.focus();
-        return;
-      }
-      setMsg("🎉 You're on the list! We'll be in touch.", 'success');
-      emailInput.value = '';
-      emailInput.disabled = true;
-      const submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Reserved ✓';
-      }
-    });
+
+    form.addEventListener('submit', debounce(function(e) {
+         e.preventDefault();
+
+         const val = emailInput.value;
+
+         if (!val.trim()) {
+         setMsg('Email is required.', 'error');
+         emailInput.focus();
+         return;
+          }
+
+        if (!valid(val)) {
+         setMsg('Enter a valid email (e.g. you@example.com).', 'error');
+         emailInput.focus();
+         return;
+        }
+
+        setMsg(" You're on the list! We'll be in touch.", 'success');
+  
+        emailInput.value = '';
+        
+        emailInput.disabled = true;
+  
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        if (submitBtn) {
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Reserved ✓';
+
+          }
+          
+}, 500));  
+
+    
   }
 
 })();
